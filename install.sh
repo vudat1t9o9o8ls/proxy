@@ -38,7 +38,7 @@ auth none
 
 
 
-$(awk -F "/" '{print "auth strong\n" \
+
 "allow " $1 "\n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
