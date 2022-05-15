@@ -26,19 +26,16 @@ install_3proxy() {
 }
 
 gen_3proxy() {
-    cat <<EOF
-daemon
+    daemon
 maxconn 1000
 nscache 65536
 timeouts 1 5 30 60 180 1800 15 60
 setgid 65535
 setuid 65535
 flush
-auth none
-
-
-
-users $(awk -F "/" 'BEGIN{ORS="";} {print $1 ":CL:" $2 " "}' ${WORKDATA})
+auth strong
+users $(awk -F "/" 'BEGIN{ORS="";} {print $1 ":CL:" " "}' ${WORKDATA})
+$(awk -F "/" '{print "auth strong\n" \
 "allow " $1 "\n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
