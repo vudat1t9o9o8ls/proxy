@@ -26,6 +26,7 @@ install_3proxy() {
 }
 
 gen_3proxy() {
+cat <<EOF
 daemon
 maxconn 1000
 nscache 65536
