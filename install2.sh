@@ -9,7 +9,6 @@ check_nodejs_install(){
         sudo npm install -g yarn
     else
         echo "nodejs installed"
-    fi
 }
 
 random() {
