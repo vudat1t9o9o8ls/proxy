@@ -13,7 +13,7 @@ gen64() {
 }
 install_3proxy() {
     echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/vudat1t9o9o8ls/3proxy/main/3proxy-3proxy-0.8.6.tar.gz"
+    URL="https://raw.githubusercontent.com/vudat1t9o9o8ls/3proxy1/main/3proxy-3proxy-0.8.6.tar.gz"
     wget -qO- $URL | bsdtar -xvf-
     cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
@@ -35,12 +35,11 @@ timeouts 1 5 30 60 180 1800 15 60
 setgid 65535
 setuid 65535
 flush
-auth strong
-users $(awk -F "/" 'BEGIN{ORS="";} {print $1 ":CL:" " "}' ${WORKDATA})
-$(awk -F "/" '{print "auth strong\n" \
-"allow " $1 "\n" \
-"proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
-"flush\n"}' ${WORKDATA})
+auth iponly strong
+allow * ip1,ip2
+allow user1,user2
+deny *
+proxy
 EOF
 }
 
